@@ -10,6 +10,7 @@ const schema = new Schema({
     firstName: {type : String, required : true},
     lastName: {type : String, required : true},
     email : {type: String, required : false},
+    role : {type : String, enum : ['customer', 'admin', 'server'], default : 'user'},
     creationDate: {type : Date, default : Date.now},
 });
 

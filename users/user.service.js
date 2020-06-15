@@ -53,6 +53,22 @@ async function create(_user){
     await user.save();
 }
 
+async function adminCreate(id, _user){
+    const admin = await User.findById(id);
+
+    if(!admin || admin.role != 'admin') {
+        throw 'Invalid admin action';
+    }
+
+    await create(_user);
+
+}
+
+async function selfCreate(_user){
+    _user.role = 'customer';
+    await create(_user);
+}
+
 
 
 async function update(_user) {
@@ -67,6 +83,7 @@ async function update(_user) {
     }
 
     delete _user.creationDate;
+    delete _user.role;
 
     Object.assign(user, _user);
 

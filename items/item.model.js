@@ -10,6 +10,7 @@ const schema = new Schema({
     price: {type : Schema.Types.Number, required : true},
     available: {type:Boolean, default: true},
     imageName : {type:String, required:false},
+    avgServingTime : {type: Schema.Types.Number, required:true},
     creationDate: {type : Date, default : Date.now},
 });
 

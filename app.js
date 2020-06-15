@@ -23,6 +23,7 @@ app.use(jwt());
 // api routes
 app.use('/users', require('./users/user.controller'));
 app.use('/items', require('./items/item.controller'));
+app.use('/tables', require('./tables/table.controller'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

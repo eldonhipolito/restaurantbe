@@ -10,7 +10,7 @@ router.post('/authenticate', authenticate);
 router.get('/:username', getByUsername);
 router.post('/register', register);
 router.put('/:username', update);
-
+router.post('/adminregister', adminRegister);
 
 module.exports = router;
 
@@ -22,6 +22,10 @@ function authenticate(req, res, next){
 function register(req, res, next){
     console.log(req.body);
     UserService.create(req.body).then(() => res.json({message : "User registered successfully"})).catch(err => next(err));
+}
+
+function adminRegister(req, res, next) {
+    
 }
 
 function getByUsername(req, res, next){
